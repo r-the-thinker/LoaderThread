@@ -7,20 +7,28 @@ loadQueue start's a new thread evey time
 
 ```python
 
-def func1():
-  print("Func1")
-def func2(name, age):
-  print(name, "is", age, "years old.")
+from UnmanagedExecutor import*
+import time
+
 def funcTime(delay):
-  time.sleep(delay)
-  
- 
-loader = Loader()
-loader.loadQueue((func1,), (func2, "Toasty", 20), (funcTime, 3))
-loader.loadQueue((funcTime, 10))
- 
-loader.waitForAll()
- 
-print("Finished Loading All")
+    time.sleep(delay)
+def funcPrint(text):
+    print(text)
+
+l = Executor()
+
+l.execChain((funcTime, 10), (funcPrint, "Keyboard"))
+l.execChain((funcTime, 1), (funcPrint, "Mouse"))
+l.waitForAll()
+
+```
+
+# Example Use
+
+```python
+ue = UnmanagedExecutor()
+ue.execChain( (updateMainCamera,), (updateSceneCamera, preferences) )
+ue.execChain( (updatePhysics,), (updateSystem,) )
+ue.waitForAll()
 
 ```
