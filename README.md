@@ -2,7 +2,7 @@
 Just something to so save time when wanting to execute functions in the background.
 <br/>
 <br/>
-loadQueue start's a new thread evey time 
+execChain start's a new thread evey time 
 
 
 ```python
