@@ -1,7 +1,7 @@
 import threading
 
 
-class Executor:
+class UnmanagedExecutor:
 
 
     def __init__(self):
